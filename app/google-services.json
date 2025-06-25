@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "951621007833",
+    "project_id": "strathmore-event-app",
+    "storage_bucket": "strathmore-event-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951621007833:android:0f4a674e71074ac33a01c8",
+        "android_client_info": {
+          "package_name": "com.strathmore.eventapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_lK6Q0djGsSjq33OAxi1VU_s86r-kcr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
