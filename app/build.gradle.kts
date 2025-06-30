@@ -96,6 +96,8 @@ dependencies {
     // Compose BOM - this manages all Compose library versions
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.bundles.compose)
+    implementation(libs.androidx.navigation.compose)
+
 
     // Compose additional
     debugImplementation(libs.androidx.ui.tooling)
@@ -104,6 +106,7 @@ dependencies {
     // Firebase BOM - this manages all Firebase library versions
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
     implementation(libs.bundles.firebase)
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
@@ -128,6 +131,10 @@ dependencies {
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)
+
+    //Coil, a Jetpack Compose-compatible image loading library.
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
 
     // Testing
     testImplementation(libs.junit)
