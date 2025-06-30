@@ -16,6 +16,7 @@ import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
 import com.strathmore.eventapp.viewmodel.EventViewModel
 import com.strathmore.eventapp.ui.navigation.NavRoutes
+import android.net.Uri
 
 @Composable
 fun EventListScreen(
@@ -42,7 +43,12 @@ fun EventListScreen(
                     imageUrl = event.imageUrl,
                     onClick = {
                         navController.navigate(
-                            "${NavRoutes.EventDetail}/${event.title}/${event.description}/${event.date}/${event.location}/${event.imageUrl}"
+                            "${NavRoutes.EventDetail}/" +
+                                    "${Uri.encode(event.title)}/" +
+                                    "${Uri.encode(event.description)}/" +
+                                    "${Uri.encode(event.date)}/" +
+                                    "${Uri.encode(event.location)}/" +
+                                    "${Uri.encode(event.imageUrl ?: "")}"
                         )
                     }
                 )

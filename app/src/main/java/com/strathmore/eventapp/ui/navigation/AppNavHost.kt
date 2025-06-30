@@ -4,12 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
 import androidx.navigation.navArgument
 import com.strathmore.eventapp.ui.screens.EventDetailScreen
 import com.strathmore.eventapp.ui.screens.EventListScreen
 import com.strathmore.eventapp.ui.screens.WelcomeScreen
-import androidx.navigation.NavHostController
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -37,11 +38,14 @@ fun AppNavHost(navController: NavHostController) {
                 navArgument("imageUrl") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val title = backStackEntry.arguments?.getString("title") ?: ""
-            val description = backStackEntry.arguments?.getString("description") ?: ""
-            val date = backStackEntry.arguments?.getString("date") ?: ""
-            val location = backStackEntry.arguments?.getString("location") ?: ""
-            val imageUrl = backStackEntry.arguments?.getString("imageUrl") ?: ""
+            fun decode(arg: String?): String =
+                URLDecoder.decode(arg ?: "", StandardCharsets.UTF_8.name())
+
+            val title = decode(backStackEntry.arguments?.getString("title"))
+            val description = decode(backStackEntry.arguments?.getString("description"))
+            val date = decode(backStackEntry.arguments?.getString("date"))
+            val location = decode(backStackEntry.arguments?.getString("location"))
+            val imageUrl = decode(backStackEntry.arguments?.getString("imageUrl"))
 
             EventDetailScreen(
                 title = title,
@@ -53,3 +57,4 @@ fun AppNavHost(navController: NavHostController) {
         }
     }
 }
+
