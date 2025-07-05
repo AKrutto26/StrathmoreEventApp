@@ -93,6 +93,13 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
 
+    // **************************************************************************
+    // FIX: ADDED THESE LINES FOR TRADITIONAL XML LAYOUTS AND VIEWS
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // **************************************************************************
+
     // Compose BOM - this manages all Compose library versions
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.bundles.compose)
