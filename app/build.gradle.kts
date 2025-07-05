@@ -105,6 +105,11 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.androidx.navigation.compose)
 
+    // ***************************************************************
+    // FIX: ADDED THESE TWO LINES FOR TRADITIONAL VIEWS (XML LAYOUTS)
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    // ***************************************************************
 
     // Compose additional
     debugImplementation(libs.androidx.ui.tooling)
@@ -141,7 +146,6 @@ dependencies {
 
     //Coil, a Jetpack Compose-compatible image loading library.
     implementation("io.coil-kt:coil-compose:2.6.0")
-
 
     // Testing
     testImplementation(libs.junit)
