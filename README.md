@@ -51,8 +51,12 @@ com.strathmore.eventapp
 │   └── AuthViewModel.kt          # Handles user login state
 │
 └── MainActivity.kt               # Entry point, sets up Compose and navigation
+```
 
-🔧 Technologies Used
+
+---
+
+## 🔧 Technologies Used
 Tool/Library	Purpose
 Jetpack Compose	Declarative UI Toolkit
 Firebase Auth	User authentication (email only)
@@ -62,7 +66,9 @@ Material3	UI styling
 Coil	Image loading
 Kotlin DSL	Gradle configuration style
 
-🧪 Running the App
+---
+
+## 🧪 Running the App
 Prerequisites
 Android Studio Hedgehog or later
 
@@ -76,7 +82,9 @@ Firestore set up with a events collection
 
 google-services.json in /app/
 
-Run Instructions
+---
+
+## Run Instructions
 Clone the repo:
 
 bash
@@ -91,7 +99,9 @@ Log in with a valid @strathmore.edu email.
 
 Browse events and view event details.
 
-📦 Firestore Data Structure
+---
+
+##📦 Firestore Data Structure
 Collection: events
 
 json
@@ -105,16 +115,22 @@ Edit
   "imageUrl": "https://example.com/culturefest.jpg",
   "formLink": "https://forms.gle/eventformlink"
 }
-🔐 Firebase Auth Logic
+
+---
+
+## 🔐 Firebase Auth Logic
 Only emails ending with @strathmore.edu can log in. This is enforced on the client before attempting Firebase authentication.
 
-👥 Contributors
+---
+
+## 👥 Contributors
 Adrian Rutto – Main developer
 Joseph Wakahu
 Mary
 
+---
 
-🔍 File-by-File Descriptions
+## 🔍 File-by-File Descriptions
 📁 model/
 File	Description
 Event.kt	A Kotlin data class representing an event. It holds properties like title, description, date, location, imageUrl, and formLink. This acts as the model for displaying events from Firestore.
@@ -156,7 +172,9 @@ AuthViewModel.kt	Exposes login state and functions to the UI layer. Handles call
 File	Description
 MainActivity.kt	The app's main entry point. Sets the ComposeView, applies the app theme, and initializes AppNavHost for navigation.
 
-🔧 Other Important Files
+---
+
+## 🔧 Other Important Files
 File	Description
 AndroidManifest.xml	Declares the app's components (like MainActivity) and necessary permissions. Also links the Firebase config via metadata.
 google-services.json	Required for Firebase integration. Contains your Firebase project info (DO NOT commit this to public repos).
@@ -164,6 +182,8 @@ build.gradle.kts (both project and app-level)	Configures your dependencies: Jetp
 settings.gradle.kts	Declares modules in your project and sets the root name.
 proguard-rules.pro	Rules for code obfuscation and shrinking (used in production builds).
 themes.xml and colors.xml	Define base app theme and color definitions used by Material3 (though mostly overridden by Theme.kt now).
+
+---
 
 
 
