@@ -1,7 +1,7 @@
 package com.strathmore.eventapp.ui.navigation
 
 object NavRoutes {
-    const val Welcome = "welcome"
+    const val Login = "login"
     const val EventList = "event_list"
     const val EventDetail = "event_detail"
 }
@@ -11,9 +11,8 @@ fun eventDetailRoute(
     description: String,
     date: String,
     location: String,
-    imageUrl: String
+    imageUrl: String,
+    formLink: String
 ): String {
-    return "event_detail/$title/$description/$date/$location/$imageUrl"
+    return "${NavRoutes.EventDetail}/$title/$description/$date/$location/$imageUrl/$formLink"
 }
-
-

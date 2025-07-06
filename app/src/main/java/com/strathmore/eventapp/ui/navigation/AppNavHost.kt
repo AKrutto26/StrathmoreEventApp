@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navArgument
 import com.strathmore.eventapp.ui.screens.EventDetailScreen
 import com.strathmore.eventapp.ui.screens.EventListScreen
-import com.strathmore.eventapp.ui.screens.WelcomeScreen
+import com.strathmore.eventapp.ui.screens.LoginScreen
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 
@@ -16,12 +16,10 @@ import java.nio.charset.StandardCharsets
 fun AppNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavRoutes.Welcome
+        startDestination = NavRoutes.Login
     ) {
-        composable(route = NavRoutes.Welcome) {
-            WelcomeScreen(onContinueClicked = {
-                navController.navigate(NavRoutes.EventList)
-            })
+        composable(route = NavRoutes.Login) {
+            LoginScreen(navController = navController)
         }
 
         composable(route = NavRoutes.EventList) {
@@ -29,13 +27,14 @@ fun AppNavHost(navController: NavHostController) {
         }
 
         composable(
-            route = "${NavRoutes.EventDetail}/{title}/{description}/{date}/{location}/{imageUrl}",
+            route = "${NavRoutes.EventDetail}/{title}/{description}/{date}/{location}/{imageUrl}/{formLink}",
             arguments = listOf(
                 navArgument("title") { type = NavType.StringType },
                 navArgument("description") { type = NavType.StringType },
                 navArgument("date") { type = NavType.StringType },
                 navArgument("location") { type = NavType.StringType },
-                navArgument("imageUrl") { type = NavType.StringType }
+                navArgument("imageUrl") { type = NavType.StringType },
+                navArgument("formLink") { type = NavType.StringType }
             )
         ) { backStackEntry ->
             fun decode(arg: String?): String =
@@ -46,15 +45,16 @@ fun AppNavHost(navController: NavHostController) {
             val date = decode(backStackEntry.arguments?.getString("date"))
             val location = decode(backStackEntry.arguments?.getString("location"))
             val imageUrl = decode(backStackEntry.arguments?.getString("imageUrl"))
+            val formLink = decode(backStackEntry.arguments?.getString("formLink"))
 
             EventDetailScreen(
                 title = title,
                 description = description,
                 date = date,
                 location = location,
-                imageUrl = imageUrl
+                imageUrl = imageUrl,
+                formLink = formLink
             )
         }
     }
 }
-

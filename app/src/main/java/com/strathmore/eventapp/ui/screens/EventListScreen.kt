@@ -15,7 +15,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
 import com.strathmore.eventapp.viewmodel.EventViewModel
-import com.strathmore.eventapp.ui.navigation.NavRoutes
+import com.strathmore.eventapp.ui.navigation.eventDetailRoute
 import android.net.Uri
 
 @Composable
@@ -42,14 +42,15 @@ fun EventListScreen(
                     eventDate = event.date,
                     imageUrl = event.imageUrl,
                     onClick = {
-                        navController.navigate(
-                            "${NavRoutes.EventDetail}/" +
-                                    "${Uri.encode(event.title)}/" +
-                                    "${Uri.encode(event.description)}/" +
-                                    "${Uri.encode(event.date)}/" +
-                                    "${Uri.encode(event.location)}/" +
-                                    "${Uri.encode(event.imageUrl ?: "")}"
+                        val route = eventDetailRoute(
+                            Uri.encode(event.title),
+                            Uri.encode(event.description),
+                            Uri.encode(event.date),
+                            Uri.encode(event.location),
+                            Uri.encode(event.imageUrl ?: ""),
+                            Uri.encode(event.formLink ?: "")
                         )
+                        navController.navigate(route)
                     }
                 )
             }
@@ -90,4 +91,5 @@ fun EventCard(
         }
     }
 }
+
 
