@@ -30,7 +30,6 @@ android {
         debug {
             isDebuggable = true
             isMinifyEnabled = false
-            //applicationIdSuffix = ".debug"
             manifestPlaceholders["appName"] = "Strathmore Events Debug"
         }
 
@@ -73,7 +72,6 @@ android {
         }
     }
 
-    // Room schema export
     kapt {
         arguments {
             arg("room.schemaLocation", "$projectDir/schemas")
@@ -90,35 +88,29 @@ android {
 dependencies {
     // Core Android
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.appcompat)
 
-    // **************************************************************************
-    // FIX: ADDED THESE LINES FOR TRADITIONAL XML LAYOUTS AND VIEWS
+    // Lifecycle, ViewModel, and Navigation for Fragments (XML Views)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3")
+    implementation("androidx.fragment:fragment-ktx:1.8.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    // UI Libraries for traditional XML Layouts
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    // **************************************************************************
 
-    // Compose BOM - this manages all Compose library versions
+    // Compose BOM
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.androidx.navigation.compose)
-
-    // ***************************************************************
-    // FIX: ADDED THESE TWO LINES FOR TRADITIONAL VIEWS (XML LAYOUTS)
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    // ***************************************************************
-
-    // Compose additional
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Firebase BOM - this manages all Firebase library versions
-    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+    // Firebase BOM
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.firestore)
     implementation(libs.bundles.firebase)
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
@@ -138,13 +130,13 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
-    // Network (optional for future API calls)
+    // Network
     implementation(libs.bundles.network)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)
 
-    //Coil, a Jetpack Compose-compatible image loading library.
+    // Coil
     implementation("io.coil-kt:coil-compose:2.6.0")
 
     // Testing
