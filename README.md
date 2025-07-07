@@ -124,8 +124,8 @@ Only emails ending with @strathmore.edu can log in. This is enforced on the clie
 ---
 
 ## 👥 Contributors
-Adrian Rutto – Main developer
-Joseph Wakahu
+Adrian Rutto – Backend developer,
+Joseph Wakahu -   UI Developer
 Mary
 
 ---

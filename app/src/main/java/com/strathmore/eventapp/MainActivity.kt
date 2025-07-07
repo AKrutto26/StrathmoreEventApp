@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.FirebaseApp
 import com.strathmore.eventapp.ui.navigation.AppNavHost
-import com.strathmore.eventapp.ui.theme.StrathmoreEventAppTheme
+import com.strathmore.eventapp.ui.theme.StrathmoreEventAppTheme // ✅ Make sure this import is correct
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,5 +21,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 
