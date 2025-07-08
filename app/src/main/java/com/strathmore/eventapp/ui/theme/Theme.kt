@@ -1,32 +1,30 @@
+// File: ui/theme/Theme.kt
 package com.strathmore.eventapp.ui.theme
 
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val LightColors = lightColorScheme(
+private val LightColorScheme = lightColorScheme(
     primary = StrathmoreBlue,
     onPrimary = Color.White,
-    primaryContainer = StrathmoreGold,
-    onPrimaryContainer = Color.Black,
-    secondary = StrathmoreRed,
-    onSecondary = Color.White,
-    secondaryContainer = StrathmoreYellow,
-    onSecondaryContainer = Color.Black,
-    background = Color.White,
-    onBackground = Color.Black,
-    surface = Color.White,
-    onSurface = Color.Black
+    secondary = StrathmoreGold,
+    onSecondary = StrathmoreBlack,
+    background = LightGrayBackground,
+    onBackground = StrathmoreBlack,
+    error = StrathmoreRed,
+    onError = Color.White
 )
 
 @Composable
-fun StrathmoreEventAppTheme(content: @Composable () -> Unit) {
+fun StrathmoreEventAppTheme(
+    content: @Composable () -> Unit
+) {
     MaterialTheme(
-        colorScheme = LightColors,
-        typography = Typography,
-        shapes = AppShapes,
+        colorScheme = LightColorScheme,
+        typography = AppTypography,
         content = content
     )
 }
+
 
